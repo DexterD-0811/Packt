@@ -4,7 +4,7 @@ import { log } from "#utils/log.js";
 
 export async function addItem(req, res) {
   try {
-    const { itemName, description, quantity, container, containerName, image } = req.body;
+    const { itemName, description, quantity, image } = req.body;
     const { containerId } = req.params;
 
     const containerRef = await Container.findById(containerId);
