@@ -1,0 +1,212 @@
+### Create Container - Example 1
+POST http://localhost:3000/container
+Origin: http://localhost:5173
+Content-Type: application/json
+
+{
+  "containerName": "Kitchen Box",
+  "notes": "Contains kitchen utensils",
+  "location": "Kitchen",
+  "icon": "box-icon-1",
+  "tags": ["kitchen", "utensils"]
+}
+
+### Create Container - Example 2
+POST http://localhost:3000/container
+Origin: http://localhost:5173
+Content-Type: application/json
+
+{
+  "containerName": "Garage Tools",
+  "notes": "Power tools and hardware",
+  "location": "Garage",
+  "icon": "tools-icon",
+  "tags": ["tools", "garage"]
+}
+
+
+### Create Container - Example 3
+POST http://localhost:3000/container
+Origin: http://localhost:5173
+Content-Type: application/json
+
+{
+  "containerName": "Bookshelf",
+  "notes": "Old novels and magazines",
+  "location": "Living Room",
+  "icon": "books-icon",
+  "tags": ["books", "reading"]
+}
+
+
+### Create Container - Example 4
+POST http://localhost:3000/container
+Origin: http://localhost:5173
+Content-Type: application/json
+
+{
+  "containerName": "Office Supplies",
+  "notes": "Stationery and office essentials",
+  "location": "Home Office",
+  "icon": "office-icon",
+  "tags": ["office", "stationery"]
+}
+
+
+### Get All Containers
+GET http://localhost:3000/container
+Origin: http://localhost:5173
+Accept: application/json
+
+
+### Get Container by ID
+GET http://localhost:3000/container/68f12e6393377f36c6b2a07d
+Origin: http://localhost:5173
+Accept: application/json
+
+
+### Search Containers
+GET http://localhost:3000/container/search?search=off
+Origin: http://localhost:5173
+Accept: application/json
+
+
+### Update Container - Example 1 (Partial update)
+PATCH http://localhost:3000/container/68f12e6393377f36c6b2a07d
+Origin: http://localhost:5173
+Content-Type: application/json
+Accept: application/json
+
+{
+  "containerName": "Office Box"
+}
+
+
+### Update Container - Example 2 (Full update)
+PATCH http://localhost:3000/container/{{id}}
+Origin: http://localhost:5173
+Content-Type: application/json
+Accept: application/json
+
+{
+  "containerName": "Full Update Container",
+  "notes": "Updated notes",
+  "location": "Updated Location",
+  "icon": "new-icon.png",
+  "tags": ["tag1", "tag2"],
+  "qrCode": "data:image/png;base64,...."
+}
+
+
+### Delete Container
+DELETE http://localhost:3000/container/{{id}}
+Accept: application/json  
+
+### Bulk Delete Containers
+DELETE http://localhost:3000/container
+Accept: application/json
+
+
+#### items
+
+### Add Item - Example 1
+POST http://localhost:3000/item/68f12e6393377f36c6b2a07d
+Origin: http://localhost:5173
+Content-Type: application/json
+Accept: application/json
+
+{
+  "itemName": "Screwdriver",
+  "description": "Flathead screwdriver",
+  "quantity": 3,
+  "image": "https://example.com/images/screwdriver.png"
+}
+
+### Add Item - Example 2
+POST http://localhost:3000/item/68f12e6393377f36c6b2a07d
+Origin: http://localhost:5173
+Content-Type: application/json
+Accept: application/json
+
+{
+  "itemName": "Hammer",
+  "description": "16oz claw hammer",
+  "quantity": 1,
+  "image": ""
+}
+
+### Add Item - Example 3
+POST http://localhost:3000/item/68f12e6393377f36c6b2a07d
+Origin: http://localhost:5173
+Content-Type: application/json
+Accept: application/json
+
+{
+  "itemName": "Box of nails",
+  "description": "100 count, 2 inch nails",
+  "quantity": 1,
+  "container": "64e12345abcd67890ef12347"
+}
+
+### Add Item - Example 4
+POST http://localhost:3000/item/68f12e6393377f36c6b2a07d
+Origin: http://localhost:5173
+Content-Type: application/json
+Accept: application/json  
+
+{
+  "itemName": "Notebook",
+  "description": "College ruled notebook",
+  "quantity": 2,
+  "container": "64e12345abcd67890ef12348",
+  "image": "https://example.com/images/notebook.png"
+}
+
+### Get All Items
+GET http://localhost:3000/item
+Origin: http://localhost:5173
+Accept: application/json 
+
+### Get Item by ID
+GET http://localhost:3000/item/68f26d78bf64e0ea019fdefb
+Origin: http://localhost:5173
+Accept: application/json 
+
+### Search Items
+GET http://localhost:3000/item/search?search=screw
+Origin: http://localhost:5173
+Accept: application/json 
+
+### Update Item - Example 1 (Partial update)
+PATCH http://localhost:3000/item/68f26d78bf64e0ea019fdefb
+Origin: http://localhost:5173
+Content-Type: application/json
+Accept: application/json  
+
+{
+  "itemName": "New Screwdriver",
+  "quantity": 5
+}
+
+### Update Item - Example 2 (Full update)
+PATCH http://localhost:3000/item/{{id}}
+Origin: http://localhost:5173
+Content-Type: application/json
+Accept: application/json
+{
+  "itemName": "Full Update Item",
+  "description": "Updated description",
+  "quantity": 10,
+  "container": "64e12345abcd67890ef12349",
+  "image": "https://example.com/images/updated-item.png"
+}
+
+### Delete Item
+DELETE http://localhost:3000/item/68f26d78bf64e0ea019fdefb
+Origin: http://localhost:5173
+Accept: application/json  
+
+### Bulk Delete Items
+DELETE http://localhost:3000/item/container/68f12e6393377f36c6b2a07d
+Origin: http://localhost:5173
+Accept: application/json

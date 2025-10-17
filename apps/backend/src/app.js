@@ -1,5 +1,6 @@
 import { errorHandler } from '#modules/common/middleware/error-handler.js';
-import { sampleRoutes } from '#modules/common/sample/sample.routes.js';
+import containerRoutes from '#modules/containers/routes/container-routes.js';
+import itemRoutes from '#modules/items/routes/item-routes.js';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import express from 'express';
@@ -41,8 +42,8 @@ app.use(morgan('combined'));
 // Database connection
 await db(process.env.DB_URI);
 
-// Sample
-app.use('/sample', sampleRoutes);
+app.use('/container', containerRoutes);
+app.use('/item', itemRoutes);
 
 // Error handling middleware, MUST always be the last
 app.use(errorHandler);
